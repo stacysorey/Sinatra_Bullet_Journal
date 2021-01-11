@@ -16,3 +16,50 @@ git add .
 git commit -m "original commit"
 git remote add origin https://github.com/stacysorey/Sinatra_Bullet_Journal.git
 git push -u origin master
+
+
+
+REST
+
+THE INTERNET ONLY READS IN GETS AND POST REQUEST
+
+RESTFUL ROUTES 
+
+INDEX - Allows us to see ALL information  (GET )
+SHOW - Show's you information about 1 specific thing (GET )
+NEW - Creates a new Form (displays a form to the user) (GET)
+CREATE - Allows us to take in USER infromation (POST)
+EDIT  - Creates a an Edit form ( DISPLAYS an edit form) (GET)
+UPDATE - ALlows us to take in user infromation to UPDATE existing information (POST/PATCH)
+DELETE/DESTROY - ALlows us to Delete user Information (POST/DELETE)
+
+
+
+HTTP ACTION VERBS 
+
+GET - Allows us to see information from the internet/ or from the webpage
+POST  - Allows us to SEND information to the website 
+PUT/PATCH - Allows us to update information on the website
+DELETE - Allows us to delete information
+
+
+
+MVC 
+
+Models - Is where All of our classes live that deal with the database
+Views - Is what's being displayed on the webpage (HTML goes)
+Controllers - Is suppposed to be where MOST of our logic goes and where we create routes 
+
+
+
+Sessions - creates a file in your local project (usually a server)  
+  and it saves certain information that you want it to. 
+  Sessions only last as long as we have our SERVER open OR 30 minutes. 
+
+Cookies - create a file in your local computer (usually in your browser) 
+  and it saves certain information in there that you want. 
+  Cookies will stay there as long as you have your computer OR until you clear you cookies 
+
+Passwords Salted Hashes -  Bcrypt is an algorithm gem that allows to 
+  take in a password and change it into a more complicated looking password 
+  so that it's more difficult to be cracked by a dictionary. 
