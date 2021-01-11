@@ -16,4 +16,16 @@ class JournalsController < ApplicationController
     erb :'journals/show' 
   end 
 
+  # new
+  get '/journals/new' do
+    erb :'journals/new'
+  end
+
+  # delete
+  delete 'journals/:id' do
+    @journal = Journal.find(params[:id])
+    @journal.destroy
+    redirect '/journals'
+  end
+
 end
