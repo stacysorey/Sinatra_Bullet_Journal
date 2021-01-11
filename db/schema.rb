@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20210111035840) do
 
   create_table "entry", force: :cascade do |t|
-    t.date "date"
+    t.date    "date"
+    t.integer "journal_id"
   end
 
   create_table "journal", force: :cascade do |t|
     t.string  "title"
-    t.integer "entry_id"
     t.integer "user_id"
   end
 
