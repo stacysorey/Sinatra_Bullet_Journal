@@ -1,6 +1,6 @@
 class CreateJournal < ActiveRecord::Migration
   def change
-    create_table :journal do |t|
+    create_table :journals do |t|
       t.string :title
       t.integer :user_id
     end

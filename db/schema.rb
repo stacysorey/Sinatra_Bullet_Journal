@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20210111035840) do
     t.integer "journal_id"
   end
 
-  create_table "journal", force: :cascade do |t|
+  create_table "journals", force: :cascade do |t|
     t.string  "title"
     t.integer "user_id"
   end
