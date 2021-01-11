@@ -1,9 +1,10 @@
+**MANY COMMITS REQUIRED FOR PROJECT**
 git status
 git add .
 git commit -m " "
 git push origin master
 
-
+CONNECTING TO GITHUB:
 git init in terminal
 in github:
 create new repository
@@ -11,7 +12,7 @@ public
 do not initialize with readme
 create repository
 in terminal: 
-git add README.md
-git commit -m "first commit"
-git remote add origin 
+git add .
+git commit -m "original commit"
+git remote add origin https://github.com/stacysorey/Sinatra_Bullet_Journal.git
 git push -u origin master
