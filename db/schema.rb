@@ -11,33 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210111051837) do
-
-  create_table "daily_logs", force: :cascade do |t|
-    t.date   "date"
-    t.string "title"
-    t.text   "description"
-  end
+ActiveRecord::Schema.define(version: 20210111035840) do
 
   create_table "entry", force: :cascade do |t|
     t.date    "date"
     t.integer "journal_id"
-  end
-
-  create_table "fitness_entries", force: :cascade do |t|
-    t.date   "date"
-    t.string "workout"
-    t.string "length"
-    t.text   "description"
-  end
-
-  create_table "food_log_entries", force: :cascade do |t|
-    t.date    "date"
-    t.text    "breakfast"
-    t.text    "lunch"
-    t.text    "dinner"
-    t.text    "snacks"
-    t.integer "water_intake"
+    t.string  "title"
+    t.text    "description"
   end
 
   create_table "journals", force: :cascade do |t|
@@ -48,16 +28,6 @@ ActiveRecord::Schema.define(version: 20210111051837) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-  end
-
-  create_table "week_planner", force: :cascade do |t|
-    t.date "date"
-    t.text "monday"
-    t.text "tuesday"
-    t.text "wednesday"
-    t.text "thursday"
-    t.text "friday"
-    t.text "weekend"
   end
 
 end
