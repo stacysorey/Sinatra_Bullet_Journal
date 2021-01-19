@@ -1,0 +1,23 @@
+/journals
+-should list and link to each created journal
+
+/journals/:id 
+-should list and link to each created entry
+
+/entry
+-should just be creating new entry
+
+/new_entry
+~move current data to /entry page
+-should only show if error
+-error should be listed at the top
+
+
+
+
+
+TO DO 
+-seed data
+-relationships
+-search button (entries and journals)
+    ~ find any entry from any journal? (?? what are the parameters of search?)
