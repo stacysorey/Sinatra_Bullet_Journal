@@ -20,6 +20,6 @@
 
 TO DO 
 -seed data
--relationships
+-relationships **FIX --- BOOT ERROR
 -search button (entries and journals)
     ~ find any entry from any journal? (?? what are the parameters of search?)
