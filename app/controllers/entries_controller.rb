@@ -4,4 +4,8 @@ class EntriesController < ApplicationController
     erb :'/entries/index'
   end
 
+  get '/new_entry' do
+    erb :'/entries/new'
+  end
+
 end
