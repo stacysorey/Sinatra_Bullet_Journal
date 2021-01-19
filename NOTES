@@ -63,3 +63,8 @@ Cookies - create a file in your local computer (usually in your browser)
 Passwords Salted Hashes -  Bcrypt is an algorithm gem that allows to 
   take in a password and change it into a more complicated looking password 
   so that it's more difficult to be cracked by a dictionary. 
+
+
+
+
+  code ~/.bashrc

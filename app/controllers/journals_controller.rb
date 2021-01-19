@@ -6,7 +6,9 @@ class JournalsController < ApplicationController
 
   # create
   post '/journals' do
+    
     @journal = Journal.create(title:params[:title])
+    
     redirect to ("/journals/#{@journal.id}")
   end
 
@@ -26,6 +28,7 @@ class JournalsController < ApplicationController
   # show 
   get '/journals/:id' do 
     @journal = Journal.find(params[:id])
+    
     erb :'journals/show' 
   end 
 
