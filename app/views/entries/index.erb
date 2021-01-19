@@ -1,8 +1,22 @@
-<h1>Entries</h1>
-
-<div class="sidebar">
+<div>
 <h3>Create A New Entry</h3>
-  <ul>
-    <a class="button button1" href="/new_entry">New Entry</a>
-  </ul>
+<br>
+<br>
+  <form action="/entry" method="post">
+    <p>
+    <label>Title:</label>
+    <input type="text" name="title" required/>
+    </p>
+    <p>
+    <label>Date:</label>
+    <input type="date" name="date">
+    </p>
+    <p>
+    <label>Description:</label>
+    </p>
+    <p>
+    <textarea name="description" rows="25" cols="100"></textarea>
+    </p>
+    <input type="submit" value="  Create New Entry  ">
+  </form>
 </div>
