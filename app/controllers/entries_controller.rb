@@ -7,7 +7,7 @@ class EntriesController < ApplicationController
   # create
   post '/entry' do
     
-    @entry = Entry.create(title:params[:title],date:params[:date],description:params[:description])
+    @entry = Entry.create(title:params[:title], date:params[:date], description:params[:description])
     
     redirect to ("/entry/#{@entry.id}")
   end
