@@ -12,7 +12,9 @@
 -should only show if error
 -error should be listed at the top
 
-
+/journals/new
+-should only show if error
+-error should be listed at top
 
 
 
