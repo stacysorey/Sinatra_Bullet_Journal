@@ -1,6 +1,6 @@
 class CreateEntry < ActiveRecord::Migration
   def change
-    create_table :entry do |t|
+    create_table :entries do |t|
       t.date :date
       t.integer :journal_id
       t.string :title
