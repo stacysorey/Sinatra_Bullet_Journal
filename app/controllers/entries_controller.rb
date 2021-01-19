@@ -15,7 +15,7 @@ class EntriesController < ApplicationController
   # edit
   get '/entry/:id/edit' do
     @entry = Entry.find(params[:id])
-    erb :'entry/edit'
+    erb :'entries/edit'
   end
 
   # patch
@@ -29,7 +29,7 @@ class EntriesController < ApplicationController
   get '/entry/:id' do 
     @entry = Entry.find(params[:id])
     
-    erb :'entry/show' 
+    erb :'entries/show' 
   end 
 
   # new

@@ -1,5 +1,20 @@
 <h1>Journals</h1>
 
+<% @journal.to_a.each do |j| %>
+    <ul>
+      <li><a href="/journals/<%=j.id %>"> <%= j.title %> </a> </li>
+      <a href="/journals/<%=j.id%>/edit">EDIT</a>
+      <form action="/journals/<%=j.id%>" method="post">
+        <input type="hidden" name="_method" value="delete"> 
+        <input type="submit" value= "delete">
+      </form>
+    </ul>
+
+<% end %>
+
+
+
+
 <div class="sidebar">
 <br>
 <br>
