@@ -9,9 +9,9 @@ class EntriesController < ApplicationController
   # create
   post '/entries' do
     
-    @entry = Entry.create(title:params[:title], date:params[:date], description:params[:description])
+    @entry = Entry.create(journal_id: params[:journal_id], title:params[:title], date:params[:date], description:params[:description])
     
-    redirect to ("/entries/#{@entry.id}")
+    redirect to ("/journals/#{@entry.journal_id}")
   end
 
   # edit
@@ -27,6 +27,12 @@ class EntriesController < ApplicationController
     redirect "/entries/#{@entry.id}"
   end
 
+   # new
+  get '/entries/:id/new' do
+    @journal = params[:id]
+    erb :'/entries/new'
+  end
+
   # show 
   get '/entries/:id' do 
     @entry = Entry.find(params[:id])
@@ -34,10 +40,7 @@ class EntriesController < ApplicationController
     erb :'entries/show' 
   end 
 
-  # new
-  get '/entries/new' do
-    erb :'/entries/new'
-  end
+ 
 
   # delete
   delete 'entries/:id' do

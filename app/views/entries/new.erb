@@ -3,6 +3,7 @@
 <br>
 <br>
   <form action="/entries" method="post">
+    <input type="hidden" name="journal_id" value=<%= @journal %>>
     <p>
     <label>Title:</label>
     <input type="text" name="title" required/>

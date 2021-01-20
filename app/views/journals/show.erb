@@ -2,11 +2,16 @@
 
 <h2> Journal Title: <%= @journal.title %> </h2>
 
-
+<% @journal.entries.each do |e| %>
+<%= e.title %>
+<% end %>
  <ul>
   <a class="button button1" href="/journals">Journals Home</a>
  </ul>
 
+<ul>
+<a class= "button button1" href="/entries/<%= @journal.id %>/new">New Entry</a>
+</ul>
 
  <ul>
   <a class="button button1" href="/logout">Logout</a>
