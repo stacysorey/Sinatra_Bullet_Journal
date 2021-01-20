@@ -2,7 +2,7 @@ class CreateJournal < ActiveRecord::Migration
   def change
     create_table :journals do |t|
       t.string :title
-      t.integer :User_id
+      t.integer :user_id
     end
   end
 end
