@@ -1,6 +1,7 @@
 class JournalsController < ApplicationController
 
   get '/journals' do
+    @journal = Journal.all
     erb :'journals/index'
   end
 

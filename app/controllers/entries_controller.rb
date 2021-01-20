@@ -1,47 +1,49 @@
 class EntriesController < ApplicationController
 
-  get '/entry' do
+  get '/entries' do
+
+    @entry = Entry.all
     erb :'/entries/index'
   end
 
   # create
-  post '/entry' do
+  post '/entries' do
     
     @entry = Entry.create(title:params[:title], date:params[:date], description:params[:description])
     
-    redirect to ("/entry/#{@entry.id}")
+    redirect to ("/entries/#{@entry.id}")
   end
 
   # edit
-  get '/entry/:id/edit' do
+  get '/entries/:id/edit' do
     @entry = Entry.find(params[:id])
     erb :'entries/edit'
   end
 
   # patch
-  patch '/entry/:id' do
+  patch '/entries/:id' do
     @entry = Entry.find(params[:id])
     @entry.update(title:params[:title],date:params[:date],description:params[:description])
-    redirect "/entry/#{@entry.id}"
+    redirect "/entries/#{@entry.id}"
   end
 
   # show 
-  get '/entry/:id' do 
+  get '/entries/:id' do 
     @entry = Entry.find(params[:id])
     
     erb :'entries/show' 
   end 
 
   # new
-  get '/new_entry' do
+  get '/entries/new' do
     erb :'/entries/new'
   end
 
   # delete
-  delete 'entry/:id' do
+  delete 'entries/:id' do
     @entry = Entry.find(params[:id])
     @entry.destroy
-    redirect '/entry'
+    redirect '/entries'
   end
 
 end

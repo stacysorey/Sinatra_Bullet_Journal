@@ -1,8 +1,10 @@
-<div>
+<h1>Entries</h1>
+
+<div class="sidebar">
 <h3>Create A New Entry</h3>
 <br>
 <br>
-  <form action="/entry" method="post">
+  <form action="/entries" method="post">
     <p>
     <label>Title:</label>
     <input type="text" name="title" required/>
@@ -15,8 +17,16 @@
     <label>Description:</label>
     </p>
     <p>
-    <textarea name="description" rows="25" cols="100"></textarea>
+    <textarea name="description" rows="25" cols="30"></textarea>
     </p>
     <input type="submit" value="  Create New Entry  ">
   </form>
 </div>
+
+
+<% @entry.each do |e| %>
+    <ul>
+      <h2><%= e.date %><a class="button button1" href="/entries/<% e.id %>"><%= e.title %></a></h2>
+    <ul>
+
+<% end %>

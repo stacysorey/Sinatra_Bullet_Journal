@@ -1,7 +1,7 @@
 <h1>Edit A Journal</h1>
 
 <div>
-  <form action="/entry/<%= @entry.id %>" method="POST">
+  <form action="/entries/<%= @entry.id %>" method="POST">
     <input type="hidden" name="_method" value="PATCH">
     <label>Title</label>
       <input type="text" name="entry[title]" value="<%=@entry.title %>" >
