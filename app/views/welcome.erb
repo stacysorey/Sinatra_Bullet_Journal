@@ -9,14 +9,17 @@
 
     <div class="sidebar">
       <h3>Login</h3>
+      <br>
       <ul>
         <form action='/login' method="post">
           <p>
           <label> Username </label>
           <input type=text name="username" />
           </p>
+          <p>
           <label> Password </label>
           <input type=password name="password" />
+          </p>  
           <input type=submit value="Submit" />
           <input type="reset">
         </form>
@@ -25,16 +28,19 @@
       <br>
       <br>
       <h3>Sign Up</h3>
-      <h5>Create a Username and Password</h5>
-      <br>
+      <p>
+      <h5><i>Create a Username and Password</i></h5>
+      </p>
       <ul>
         <form action='/sign_up' method="post">
-        <p>
+          <p>
           <label> Username </label>
           <input type=text name="username" />
           </p>
+          <p>
           <label> Password </label>
           <input type=password name="password" />
+          </p>
           <input type=submit value="Submit" />
           <input type="reset">
           </form>

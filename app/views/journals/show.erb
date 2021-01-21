@@ -6,7 +6,10 @@
 <br>
 <br>
 <% @journal.entries.each do |e| %>
-  <h4><%= e.date %><a class="button button2" href="/journals/<%= e.id %>"><%= e.title %></a></h4>
+  <h4>
+    <a class="button3 button1"><%= e.date %></a>
+    <a class="button button2" href="/entries/<%= e.id %>"><%= e.title %></a>
+  </h4>
 <% end %>
 <br>
 <br>

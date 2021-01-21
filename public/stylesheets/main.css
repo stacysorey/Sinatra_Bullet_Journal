@@ -64,7 +64,7 @@
     border-radius: 12px;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
-    width: 30%; /* 240px / 800px */
+    width: 35%; /* 240px / 800px */
   }
 
   .sidebar ul {
@@ -96,7 +96,7 @@
   }
 
   .button2 {
-    border: 1px solid black;
+    border: 2px solid black;
     color: black;
     background-color:white;
     width: 250px;
@@ -107,6 +107,17 @@
     border-radius: 12px;
     font-size: 16px;
     cursor: pointer;
+  }
+
+  .button3 {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 24px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
   }
 
   .button4 {
@@ -124,8 +135,9 @@
   }
   
   .button4:hover {background-color: #e7e7e7;}
-  .button1 {background-color: #9ca19c;} 
+  .button1 {background-color: #ffffff;} 
   .button2:hover {background-color: #e7e7e7;} 
+
 }
 
 @media screen and (max-width: 600px) {

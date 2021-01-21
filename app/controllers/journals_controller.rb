@@ -29,7 +29,7 @@ class JournalsController < ApplicationController
   # show 
   get '/journals/:id' do 
     @journal = Journal.find(params[:id])
-    
+    #every time i click 
     erb :'journals/show' 
   end 
 

@@ -4,9 +4,12 @@
 <br>
 <br>
   <h3>Create A New Journal</h3>
+  <br>
   <form action="/journals" method="post">
+    <p>
     <label>Title</label>
     <input type="text" name="title" required/>
+    </p>
     <input type="submit" value="Create New Journal">
     <br>
   </form>
@@ -17,9 +20,13 @@
 
 <% @journal.each do |j| %>
     <ul>
-      <h2><a class="button button2" href="/journals/<%= j.id %>"><%= j.title %></a></h2>
+      <h2><a class="button2 button2" href="/journals/<%= j.id %>"><%= j.title %></a></h2>
+      <a href="/journals/<%= j.id %>/edit">EDIT</a>
+      <form action="/journals/<%=j.id%>" method="post">
+        <input type="hidden" name="_method" value="delete"> 
+        <input type="submit" value= "delete">
+      </form>
     <ul>
-
 <% end %>
 <br>
 <br>

@@ -1,5 +1,8 @@
 <h1> Entry: <%= @entry.id %> </h1>
 <br>
+<ul>
+  <a class="button4 button4" href="/journals/<%= @entry.journal_id %>">Go Back to <%= @entry.journal.title%> Journal</a>
+</ul>
 <br>
   <p>
   <h2> Entry Title: <%= @entry.title %> </h2>
@@ -9,12 +12,6 @@
   <br>
   <br>
   <br>
-
-<ul>
-  <a class="button button1" href="/entries">Entries Home</a>
- </ul>
-
-
-  <ul>
-  <a class="button button1" href="/logout">Logout</a>
- </ul>
+   <ul>
+    <a class="button4 button4" href="/logout">Logout</a>
+  </ul>

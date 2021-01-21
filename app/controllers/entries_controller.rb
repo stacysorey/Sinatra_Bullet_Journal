@@ -1,9 +1,7 @@
 class EntriesController < ApplicationController
 
   get '/entries' do
-
-    @entry = Entry.all
-    erb :'/entries/index'
+    redirect to ("/journals")
   end
 
   # create
