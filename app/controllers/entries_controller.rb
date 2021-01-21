@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
 
   # create
   post '/entries' do
-    @entry = Entry.create(journal_id: params[:journal_id], title:params[:title], date:params[:date], description:params[:description])
+    @entry = current_user.entries.create(journal_id: params[:journal_id], user_id: params[:user_id], title:params[:title], date:params[:date], description:params[:description])
     redirect "/journals/#{@entry.journal_id}"
   end
 
