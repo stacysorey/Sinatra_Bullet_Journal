@@ -1,19 +1,27 @@
 class EntriesController < ApplicationController
 
   get '/entries' do
-    redirect to ("/journals")
+    if logged_in?
+      redirect '/journals'
+    else
+      redirect '/login' 
+    end
   end
 
   # create
   post '/entries' do
     @entry = Entry.create(journal_id: params[:journal_id], title:params[:title], date:params[:date], description:params[:description])
-    redirect to ("/journals/#{@entry.journal_id}")
+    redirect "/journals/#{@entry.journal_id}"
   end
 
   # edit
   get '/entries/:id/edit' do
-    @entry = Entry.find(params[:id])
-    erb :'entries/edit'
+    if logged_in?
+      @entry = Entry.find(params[:id])
+      erb :'entries/edit'
+    else
+      redirect '/login'
+    end
   end
 
   # patch
@@ -25,22 +33,33 @@ class EntriesController < ApplicationController
 
    # new
   get '/entries/:id/new' do
-    @journal = params[:id]
-    erb :'/entries/new'
+    if logged_in?
+      @journal = params[:id]
+      erb :'/entries/new'
+    else
+      redirect '/login'
+    end
   end
 
   # show 
   get '/entries/:id' do 
-    @entry = Entry.find(params[:id])
-    
-    erb :'entries/show' 
+    if logged_in?
+      @entry = Entry.find(params[:id])
+      erb :'entries/show' 
+    else
+      redirect '/login'
+    end
   end 
 
   # delete
   delete 'entries/:id' do
-    @entry = Entry.find(params[:id])
-    @entry.destroy
-    redirect '/entries'
+    if logged_in?
+      @entry = Entry.find(params[:id])
+      @entry.destroy
+      redirect '/journals'
+    else
+      redirect '/login'
+    end
   end
 
 end

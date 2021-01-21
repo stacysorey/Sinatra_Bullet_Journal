@@ -1,8 +1,12 @@
 class JournalsController < ApplicationController
 
   get '/journals' do
-    @journal = Journal.all
-    erb :'/journals/index'
+    if logged_in?
+      @journal = Journal.all
+      erb :'/journals/index'
+    else
+      redirect '/login'
+    end
   end
 
   # create
@@ -13,8 +17,12 @@ class JournalsController < ApplicationController
 
   # edit
   get '/journals/:id/edit' do
-    @journal = Journal.find(params[:id])
-    erb :'journals/edit'
+    if logged_in?
+      @journal = Journal.find(params[:id])
+      erb :'journals/edit'
+    else 
+      redirect '/login'
+    end
   end
 
   # patch
@@ -26,22 +34,32 @@ class JournalsController < ApplicationController
 
   # show 
   get '/journals/:id' do 
-    @journal = Journal.find(params[:id])
-     
-    erb :'journals/show' 
+    if logged_in?
+      @journal = Journal.find(params[:id])
+      erb :'journals/show' 
+    else
+      redirect '/login'
+    end
   end 
 
   # new
   get '/journals/new' do
-    @user_id = params[:id]
-    erb :'journals/new'
+    if logged_in?
+      @user_id = params[:id]
+      erb :'journals/new'
+    else
+      redirect '/login'
+    end
   end
 
   # delete
   delete 'journals/:id' do
-    @journal = Journal.find(params[:id])
-    @journal.destroy
-    redirect '/journals'
+    if logged_in?
+      @journal = Journal.find(params[:id])
+      @journal.destroy
+      redirect '/journals'
+    else
+      redirect '/login'
   end
 
 end
