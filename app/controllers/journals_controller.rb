@@ -1,12 +1,9 @@
 class JournalsController < ApplicationController
 
   get '/journals' do
-    if logged_in?
+    require_login
       @journal = current_user.journals
       erb :'/journals/index'
-    else
-      redirect '/login'
-    end
   end
 
   # create
@@ -17,12 +14,9 @@ class JournalsController < ApplicationController
 
   # edit
   get '/journals/:id/edit' do
-    if logged_in?
+    require_login
       @journal = Journal.find(params[:id])
       erb :'journals/edit'
-    else 
-      redirect '/login'
-    end
   end
 
   # patch
@@ -34,35 +28,30 @@ class JournalsController < ApplicationController
 
   # show 
   get '/journals/:id' do 
-    if logged_in? 
+    require_login 
       @journal = current_user.journals.find(params[:id])
+      if @journal
+        erb :'journals/show'
+      else
+        redirect '/journals'
+      end
       # need to make it where it will reroute to /journals if 
       # journals/:id != current_user.
-      erb :'journals/show'
-    else
-      redirect '/login'
-    end
   end 
 
   # new
   get '/journals/new' do
-    if logged_in?
+    require_login
       @user_id = params[:id]
       erb :'journals/new'
-    else
-      redirect '/login'
-    end
   end
 
   # delete
   delete 'journals/:id' do
-    if logged_in?
+    require_login
       @journal = Journal.find(params[:id])
       @journal.destroy
       redirect '/journals'
-    else
-      redirect '/login'
-    end
   end
 
 end

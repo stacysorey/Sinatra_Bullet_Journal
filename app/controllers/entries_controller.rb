@@ -1,11 +1,8 @@
 class EntriesController < ApplicationController
 
   get '/entries' do
-    if logged_in?
-      redirect '/journals'
-    else
-      redirect '/login' 
-    end
+    require_login
+    redirect '/journals'
   end
 
   # create
@@ -16,13 +13,10 @@ class EntriesController < ApplicationController
 
   # edit
   get '/entries/:id/edit' do
-    if logged_in?
-      @entry = current_user.entries.find(params[:id])
+    require_login
+    @entry = current_user.entries.find(params[:id])
       # same authentication issue with journal
-      erb :'entries/edit'
-    else
-      redirect '/login'
-    end
+    erb :'entries/edit'
   end
 
   # patch
@@ -34,35 +28,29 @@ class EntriesController < ApplicationController
 
    # new
   get '/entries/:id/new' do
-    if logged_in?
-      @journal = params[:id]
-      erb :'/entries/new'
-    else
-      redirect '/login'
-    end
+    require_login
+    @journal = params[:id]
+    erb :'/entries/new'
   end
 
   # show 
   get '/entries/:id' do 
-    if logged_in?
-      @entry = current_user.entries.find(params[:id])
-      # same authentication issue with journal
-      erb :'entries/show' 
+    require_login
+    @entry = current_user.entries.find(params[:id])
+    if @entry
+    erb :'entries/show' 
     else
-      redirect '/login'
+      redirect '/journals'
     end
   end 
 
   # delete
   delete 'entries/:id' do
-    if logged_in?
-      @entry = current_user.entries.find(params[:id])
+    require_login
+    @entry = current_user.entries.find(params[:id])
       # same authentication issue with journal
-      @entry.destroy
-      redirect '/journals'
-    else
-      redirect '/login'
-    end
+    @entry.destroy
+    redirect '/journals'
   end
 
 end
