@@ -1,4 +1,4 @@
-<h1>Journals</h1>
+<h1>journals</h1>
 <br>
 <div class="sidebar">
 <br>
@@ -6,6 +6,7 @@
   <h3>Create A New Journal</h3>
   <br>
   <form action="/journals" method="post">
+    <input type="hidden" name="user_id" value=<%= @user_id %>>
     <p>
     <label>Title</label>
     <input type="text" name="title" required/>
@@ -21,17 +22,17 @@
 <% @journal.each do |j| %>
     <ul>
       <h2><a class="button2 button2" href="/journals/<%= j.id %>"><%= j.title %></a></h2>
-      <a href="/journals/<%= j.id %>/edit">EDIT</a>
+      <a class= "button4 button4" href="/journals/<%= j.id %>/edit">edit</a>
       <form action="/journals/<%=j.id%>" method="post">
         <input type="hidden" name="_method" value="delete"> 
-        <input type="submit" value= "delete">
+        <input class="button4 button4" value= "delete">
       </form>
     <ul>
 <% end %>
 <br>
 <br>
  <ul>
-  <a class="button4 button4" href="/logout">Logout</a>
+  <a class="button4 button4" href="/logout">logout</a>
  </ul>
 
 

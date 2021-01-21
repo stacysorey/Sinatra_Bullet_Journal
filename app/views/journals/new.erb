@@ -1,6 +1,7 @@
 <h3>Create A New Journal</h3>
   <form action="/journals" method="post">
     <label>Title</label>
+    <input type="hidden" name="user_id" value=<%= @user_id %>>
     <input type="text" name="title" required/>
     <input type="submit" value="Create New Journal">
     <input type="reset">

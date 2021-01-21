@@ -1,15 +1,13 @@
 class JournalsController < ApplicationController
 
   get '/journals' do
-    @journal = Journal.all
-    erb :'journals/index'
+    binding.pry
+    erb :'/journals/index'
   end
 
   # create
   post '/journals' do
-    
-    @journal = Journal.create(title:params[:title])
-    
+    @journal = Journal.create(user_id: params[:user_id], title: params[:title])
     redirect to ("/journals/#{@journal.id}")
   end
 
@@ -29,12 +27,13 @@ class JournalsController < ApplicationController
   # show 
   get '/journals/:id' do 
     @journal = Journal.find(params[:id])
-    #every time i click 
+     
     erb :'journals/show' 
   end 
 
   # new
   get '/journals/new' do
+    @user_id = params[:id]
     erb :'journals/new'
   end
 

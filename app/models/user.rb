@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   has_many :journals
   has_many :entries
+
+
 end

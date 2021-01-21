@@ -6,9 +6,7 @@ class EntriesController < ApplicationController
 
   # create
   post '/entries' do
-    
     @entry = Entry.create(journal_id: params[:journal_id], title:params[:title], date:params[:date], description:params[:description])
-    
     redirect to ("/journals/#{@entry.journal_id}")
   end
 
@@ -37,8 +35,6 @@ class EntriesController < ApplicationController
     
     erb :'entries/show' 
   end 
-
- 
 
   # delete
   delete 'entries/:id' do

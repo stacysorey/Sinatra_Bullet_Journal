@@ -8,4 +8,5 @@ use Rack::MethodOverride
 use EntriesController
 use JournalsController
 use UsersController
+use SessionsController
 run ApplicationController
