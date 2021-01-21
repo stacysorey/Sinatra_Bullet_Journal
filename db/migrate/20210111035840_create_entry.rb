@@ -3,6 +3,7 @@ class CreateEntry < ActiveRecord::Migration
     create_table :entries do |t|
       t.date :date
       t.integer :journal_id
+      t.integer :user_id
       t.string :title
       t.text :description
     end

@@ -17,7 +17,8 @@ class EntriesController < ApplicationController
   # edit
   get '/entries/:id/edit' do
     if logged_in?
-      @entry = Entry.find(params[:id])
+      @entry = current_user.entries.find(params[:id])
+      # same authentication issue with journal
       erb :'entries/edit'
     else
       redirect '/login'
@@ -44,7 +45,8 @@ class EntriesController < ApplicationController
   # show 
   get '/entries/:id' do 
     if logged_in?
-      @entry = Entry.find(params[:id])
+      @entry = current_user.entries.find(params[:id])
+      # same authentication issue with journal
       erb :'entries/show' 
     else
       redirect '/login'
@@ -54,7 +56,8 @@ class EntriesController < ApplicationController
   # delete
   delete 'entries/:id' do
     if logged_in?
-      @entry = Entry.find(params[:id])
+      @entry = current_user.entries.find(params[:id])
+      # same authentication issue with journal
       @entry.destroy
       redirect '/journals'
     else

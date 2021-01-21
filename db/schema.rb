@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20210111035840) do
   create_table "entries", force: :cascade do |t|
     t.date    "date"
     t.integer "journal_id"
+    t.integer "user_id"
     t.string  "title"
     t.text    "description"
   end

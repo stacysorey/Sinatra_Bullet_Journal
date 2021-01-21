@@ -2,7 +2,7 @@ class JournalsController < ApplicationController
 
   get '/journals' do
     if logged_in?
-      @journal = Journal.all
+      @journal = current_user.journals
       erb :'/journals/index'
     else
       redirect '/login'
@@ -11,7 +11,7 @@ class JournalsController < ApplicationController
 
   # create
   post '/journals' do
-    @journal = Journal.create(title: params[:title])
+    @journal = current_user.journals.create(title: params[:title], user_id: params[:user_id])
     redirect to ("/journals/#{@journal.id}")
   end
 
@@ -34,9 +34,11 @@ class JournalsController < ApplicationController
 
   # show 
   get '/journals/:id' do 
-    if logged_in?
-      @journal = Journal.find(params[:id])
-      erb :'journals/show' 
+    if logged_in? 
+      @journal = current_user.journals.find(params[:id])
+      # need to make it where it will reroute to /journals if 
+      # journals/:id != current_user.
+      erb :'journals/show'
     else
       redirect '/login'
     end
@@ -60,6 +62,7 @@ class JournalsController < ApplicationController
       redirect '/journals'
     else
       redirect '/login'
+    end
   end
 
 end
