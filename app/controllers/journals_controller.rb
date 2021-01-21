@@ -1,13 +1,13 @@
 class JournalsController < ApplicationController
 
   get '/journals' do
-    binding.pry
+    @journal = Journal.all
     erb :'/journals/index'
   end
 
   # create
   post '/journals' do
-    @journal = Journal.create(user_id: params[:user_id], title: params[:title])
+    @journal = Journal.create(title: params[:title])
     redirect to ("/journals/#{@journal.id}")
   end
 

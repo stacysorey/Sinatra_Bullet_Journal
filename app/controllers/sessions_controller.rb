@@ -1,17 +1,24 @@
 class SessionsController < ApplicationController
-  
+  # user can login 
+  # user can logout
+
   get '/login' do
     erb :'users/login' 
   end
 
   post '/login' do
-    @user = User.find_by(username:params[:username])
-    if @user && @user.authenticate(params[:password])
-        session[:user_id] =  @user.id
-        redirect "/journals"
+    if params[:username].blank? || params[:password].blank?
+      @error = "Username and password can't be blank."
+      erb :'users/login'
     else 
-        @error = "Sorry, Either Username or Password is Incorrect, please try again"
-        erb :'users/login'
+      @user = User.find_by(username:params[:username])
+      if @user && @user.authenticate(params[:password])
+          session[:user_id] =  @user.id
+          redirect '/journals'
+        else
+          @error = "Invalid username or password."
+          erb :'users/login'
+        end
     end 
   end 
 
