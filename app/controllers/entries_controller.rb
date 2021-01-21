@@ -48,7 +48,6 @@ class EntriesController < ApplicationController
   delete 'entries/:id' do
     require_login
     @entry = current_user.entries.find(params[:id])
-      # same authentication issue with journal
     @entry.destroy
     redirect '/journals'
   end

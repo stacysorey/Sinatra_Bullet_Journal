@@ -24,7 +24,7 @@
       <a class= "button4 button4" href="/journals/<%= j.id %>/edit">edit</a>
       <form action="/journals/<%=j.id%>" method="post">
         <input type="hidden" name="_method" value="delete"> 
-        <input class="button4 button4" value= "delete">
+        <input type="submit" value= "delete">
       </form>
     <ul>
 <% end %>

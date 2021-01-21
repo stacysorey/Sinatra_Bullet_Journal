@@ -1,5 +1,6 @@
 class JournalsController < ApplicationController
 
+
   get '/journals' do
     require_login
       @journal = current_user.journals
@@ -15,8 +16,10 @@ class JournalsController < ApplicationController
   # edit
   get '/journals/:id/edit' do
     require_login
-      @journal = Journal.find(params[:id])
+      @journal = current_user.journals.find(params[:id])
       erb :'journals/edit'
+      #need to authenticate that user CAN edit this journal
+      #when you edit a journal title, it becomes blank
   end
 
   # patch
@@ -26,18 +29,12 @@ class JournalsController < ApplicationController
     redirect "/journals/#{@journal.id}"
   end
 
-  # show 
-  get '/journals/:id' do 
-    require_login 
-      @journal = current_user.journals.find(params[:id])
-      if @journal
-        erb :'journals/show'
-      else
-        redirect '/journals'
-      end
-      # need to make it where it will reroute to /journals if 
-      # journals/:id != current_user.
-  end 
+ # delete
+  delete 'journals/:id' do
+      @journal = Journal.find(params[:id])
+      @journal.destroy
+      redirect '/journals'
+  end
 
   # new
   get '/journals/new' do
@@ -46,12 +43,17 @@ class JournalsController < ApplicationController
       erb :'journals/new'
   end
 
-  # delete
-  delete 'journals/:id' do
+  # show 
+  get '/journals/:id' do 
     require_login
+
       @journal = Journal.find(params[:id])
-      @journal.destroy
-      redirect '/journals'
-  end
+        erb :'journals/show'
+     
+      # need to make it where it will reroute to /journals if 
+      # journals/:id != current_user.
+  end 
+
+ 
 
 end

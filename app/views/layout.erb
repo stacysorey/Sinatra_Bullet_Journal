@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <div>
+  <% if logged_in? %>
     <a class="button4 button4" href="/">home</a>
     <a class="button4 button4" href="/journals">journals</a>
     <a class="button4 button4" href="/logout">logout</a>
+  <%end%>
   </div>
 
   <body>
