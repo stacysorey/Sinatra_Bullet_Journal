@@ -1,5 +1,5 @@
 class JournalsController < ApplicationController
-
+ 
   get '/journals' do
     require_login
       @journal = current_user.journals
@@ -53,7 +53,7 @@ class JournalsController < ApplicationController
 
   # show 
   get '/journals/:id' do 
-    require_login
+      require_login
       if @journal = current_user.journals.find_by(id: params[:id])
         erb :'journals/show' 
       else

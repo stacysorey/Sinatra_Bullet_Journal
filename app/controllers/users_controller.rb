@@ -15,5 +15,8 @@ class UsersController < ApplicationController
        end 
   end 
 
+  get '/error' do
+    erb :'users/error_page'
+  end
 
 end 

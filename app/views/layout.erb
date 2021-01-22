@@ -20,6 +20,10 @@
     <a class="button4 button4" href="/logout"><b>logout</b></a>
     <a class="button5 button3"><b>welcome, <%=current_user.username%> &#128172;</b></a>
   <%end%>
+  <% if !logged_in? %>
+  <a class="button4 button4" href="/login"><b>login</b></a>
+  <a class="button4 button4" href="/sign_up"><b>sign up</b></a>
+  <%end%>
   </div>
 
   <body>
