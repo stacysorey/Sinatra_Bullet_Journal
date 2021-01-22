@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   has_many :journals
   has_many :entries
-
-
 end
+
+
+
