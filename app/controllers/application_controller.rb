@@ -14,6 +14,7 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
+# need to figure out how to redirect to / if doesn't match any get requests
 
   def logged_in?
     !!current_user
