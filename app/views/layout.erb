@@ -7,15 +7,15 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>Journal</title>
+    <title>&#128211; journal</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <div>
+  <a class="button4 button4" href="/"><b>home</b></a>
   <% if logged_in? %>
-    <a class="button4 button4" href="/"><b>home</b></a>
     <a class="button4 button4" href="/journals"><b>journals</b></a>
     <a class="button4 button4" href="/logout"><b>logout</b></a>
     <a class="button5 button3"><b>welcome, <%=current_user.username%> &#128172;</b></a>

@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
 
   post '/login' do
     if params[:username].blank? || params[:password].blank?
-      @error = "Username and password can't be blank."
+      @error = "Username or password can't be blank."
       erb :'users/login'
     else 
         @user = User.find_by(username:params[:username]) 
           if @user && @user.authenticate(params[:password])
-          session[:user_id] =  @user.id
+          session[:user_id] = @user.id
           redirect '/journals'
         else
           @error = "Invalid username or password."

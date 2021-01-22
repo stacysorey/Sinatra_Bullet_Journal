@@ -1,6 +1,5 @@
 class JournalsController < ApplicationController
 
-
   get '/journals' do
     require_login
       @journal = current_user.journals
