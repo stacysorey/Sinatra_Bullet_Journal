@@ -29,7 +29,7 @@ INDEX - Allows us to see ALL information  (GET )
 SHOW - Show's you information about 1 specific thing (GET )
 NEW - Creates a new Form (displays a form to the user) (GET)
 CREATE - Allows us to take in USER infromation (POST)
-EDIT  - Creates a an Edit form ( DISPLAYS an edit form) (GET)
+EDIT  - ( DISPLAYS an edit form) (GET)
 UPDATE - ALlows us to take in user infromation to UPDATE existing information (POST/PATCH)
 DELETE/DESTROY - ALlows us to Delete user Information (POST/DELETE)
 

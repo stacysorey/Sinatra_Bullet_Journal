@@ -27,3 +27,9 @@ TO DO
 
 <img src="https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Plants Image" width ="350"/>
 <img src="https://images.pexels.com/photos/5797900/pexels-photo-5797900.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Journal Image" width="325"/>
+
+
+
+Live Coding: 
+Memoization 
+Memoize current user to make sure it doesn't hit the database multiple times
