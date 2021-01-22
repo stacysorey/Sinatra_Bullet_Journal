@@ -30,7 +30,7 @@ class JournalsController < ApplicationController
   # patch
   patch '/journals/:id' do
     @journal = Journal.find(params[:id])
-    @journal.update(title:params[:title])
+    @journal.update(title:params[:journal][:title])
     redirect "/journals/#{@journal.id}"
   end
 

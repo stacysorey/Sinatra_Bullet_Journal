@@ -1,11 +1,13 @@
-<h1>Edit A Journal</h1>
-
+<h1>edit a journal &#128394;</h1>
+<br>
+<br>
 <div>
   <form action="/journals/<%= @journal.id %>" method="POST">
     <input type="hidden" name="_method" value="PATCH">
     <label>Title</label>
       <input type="text" name="journal[title]" value="<%=@journal.title %>" >
-    <input type="submit" value="Edit Journal">
+    <input type="submit" value="Save Edits">
+    <input type="reset">
   </form>
 </div>
 
