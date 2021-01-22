@@ -30,10 +30,15 @@ class JournalsController < ApplicationController
   end
 
  # delete
-  delete 'journals/:id' do
+  delete '/journals/:id' do
+
       @journal = Journal.find(params[:id])
-      @journal.destroy
-      redirect '/journals'
+      if @journal.user_id == current_user.id
+        @journal.destroy
+        redirect '/journals'
+      else
+        redirect "/journals/#{@journal.id}"
+      end
       #not deleting ANYTHING "sinatra doesn't know this ditty"
   end
 

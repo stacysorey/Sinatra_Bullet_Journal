@@ -14,7 +14,12 @@ class EntriesController < ApplicationController
   # edit
   get '/entries/:id/edit' do
     require_login
-    @entry = current_user.entries.find(params[:id])
+    @entry = current_user.entries.find_by(id: params[:id])
+    if @entry.user_id == current_user.id
+      erb :'entries/edit'
+    else 
+      redirect "/journals/"
+    end
       # same authentication issue with journal
       # user CANNOT see entries that don't belong to them yet
       # BUT it links to code break page
@@ -26,7 +31,8 @@ class EntriesController < ApplicationController
   # patch
   patch '/entries/:id' do
     @entry = Entry.find(params[:id])
-    @entry.update(title:params[:title],date:params[:date],description:params[:description])
+    @entry.update(title:params[:entry][:title],date:params[:entry][:date],description:params[:entry][:description])
+    
     redirect "/entries/#{@entry.id}"
   end
 
@@ -49,7 +55,7 @@ class EntriesController < ApplicationController
   end 
 
   # delete
-  delete 'entries/:id' do
+  delete '/entries/:id' do
     require_login
     @entry = current_user.entries.find(params[:id])
     @entry.destroy
