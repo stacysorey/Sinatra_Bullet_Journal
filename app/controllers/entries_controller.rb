@@ -14,25 +14,21 @@ class EntriesController < ApplicationController
   # edit
   get '/entries/:id/edit' do
     require_login
-    @entry = current_user.entries.find_by(id: params[:id])
-    if @entry.user_id == current_user.id
-      erb :'entries/edit'
-    else 
-      redirect "/journals/"
+    if @entry = current_user.entries.find_by(id: params[:id])
+      if @entry.user_id == current_user.id
+        erb :'entries/edit'
+      else 
+        redirect '/journals'
+      end
+    else
+      redirect '/journals'
     end
-      # same authentication issue with journal
-      # user CANNOT see entries that don't belong to them yet
-      # BUT it links to code break page
-    erb :'entries/edit'
-    # entry information disappearing after editing
-    # editing is literally clearing all of the information
   end
 
   # patch
   patch '/entries/:id' do
     @entry = Entry.find(params[:id])
     @entry.update(title:params[:entry][:title],date:params[:entry][:date],description:params[:entry][:description])
-    
     redirect "/entries/#{@entry.id}"
   end
 
@@ -46,9 +42,8 @@ class EntriesController < ApplicationController
   # show 
   get '/entries/:id' do 
     require_login
-    @entry = current_user.entries.find(params[:id])
-    if @entry
-    erb :'entries/show' 
+    if @entry = current_user.entries.find_by(id: params[:id])
+      erb :'entries/show' 
     else
       redirect '/journals'
     end
@@ -58,10 +53,12 @@ class EntriesController < ApplicationController
   delete '/entries/:id' do
     require_login
     @entry = current_user.entries.find(params[:id])
-    @entry.destroy
-    redirect '/journals'
-    # delete also not working here in web app
-    # delete works in tux
+      if @entry.user_id == current_user.id
+        @entry.destroy
+        redirect "/journals/#{@entry.journal_id}"
+      else
+        redirect '/journals'
+      end
   end
 
 end

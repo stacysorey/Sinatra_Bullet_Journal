@@ -16,10 +16,15 @@ class JournalsController < ApplicationController
   # edit
   get '/journals/:id/edit' do
     require_login
-      @journal = current_user.journals.find(params[:id])
-      erb :'journals/edit'
-      #need to authenticate that user CAN edit this journal
-      #when you edit a journal title, it becomes blank
+      if @journal = current_user.journals.find_by(id: params[:id])
+        if @journal.user_id == current_user.id
+          erb :'journals/edit'
+        else
+          redirect '/journals'
+        end
+      else
+        redirect '/journals'
+      end
   end
 
   # patch
@@ -31,7 +36,6 @@ class JournalsController < ApplicationController
 
  # delete
   delete '/journals/:id' do
-
       @journal = Journal.find(params[:id])
       if @journal.user_id == current_user.id
         @journal.destroy
@@ -39,7 +43,6 @@ class JournalsController < ApplicationController
       else
         redirect "/journals/#{@journal.id}"
       end
-      #not deleting ANYTHING "sinatra doesn't know this ditty"
   end
 
   # new
@@ -52,12 +55,11 @@ class JournalsController < ApplicationController
   # show 
   get '/journals/:id' do 
     require_login
-      @journal = Journal.find(params[:id])
-      erb :'journals/show'
-      # need to make it where it will reroute to /journals if 
-      # journals/:id != current_user.
+      if @journal = current_user.journals.find_by(id: params[:id])
+        erb :'journals/show' 
+      else
+        redirect '/journals'
+      end
   end 
-
- 
 
 end
