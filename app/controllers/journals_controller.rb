@@ -34,6 +34,7 @@ class JournalsController < ApplicationController
       @journal = Journal.find(params[:id])
       @journal.destroy
       redirect '/journals'
+      #not deleting ANYTHING "sinatra doesn't know this ditty"
   end
 
   # new
@@ -46,10 +47,8 @@ class JournalsController < ApplicationController
   # show 
   get '/journals/:id' do 
     require_login
-
       @journal = Journal.find(params[:id])
-        erb :'journals/show'
-     
+      erb :'journals/show'
       # need to make it where it will reroute to /journals if 
       # journals/:id != current_user.
   end 

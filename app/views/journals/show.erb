@@ -1,16 +1,19 @@
 <h1> <%= @journal.title %> </h1>
 <br>
-<ul>
   <a class="button4 button4" href="/entries/<%= @journal.id %>/new">New Entry</a>
-</ul>
 <br>
 <br>
 <% @journal.entries.each do |e| %>
   <h4>
     <a class="button3 button1"><%= e.date %></a>
     <a class="button button2" href="/entries/<%= e.id %>"><%= e.title %></a>
-  
+    <a class="button4 button4" href="/entries/<%= e.id %>/edit">edit</a>
   </h4>
 <% end %>
+<br>
+<form action="/journals/<%=@journal.id%>" method="post">
+    <input type="hidden" name="_method" value="delete"> 
+    <input type="submit" value= "delete journal">
+  </form>
   
  

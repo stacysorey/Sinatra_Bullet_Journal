@@ -11,12 +11,18 @@
     width: 100%;
   }
 
+  
+
   /* --- Welcome Page Styles --- */
   body {
     background-color: rgb(255, 255, 255);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+  }
+
+  img {
+    border-radius: 12px;
   }
 
   .wrapper {
@@ -59,7 +65,7 @@
   }
 
   .sidebar {
-    background: #eee;
+    background: #E5E4E2;
     border: 2px solid #e7e7e7;
     border-radius: 12px;
     float: right;
@@ -112,9 +118,10 @@
   .button3 {
     background-color: white;
     color: black;
-    border: none;
+    border: 2px solid #e7e7e7;
     padding: 10px 24px;
     text-align: left;
+    border-radius: 12px;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
@@ -133,10 +140,25 @@
     margin: 4px 2px;
     cursor: pointer;
   }
+
+  .button5 {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    padding: 10px 24px;
+    text-align: left;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
   
   .button4:hover {background-color: #e7e7e7;}
-  .button1 {background-color: #ffffff;} 
+  .button1 {background-color: #e7e7e7;} 
   .button2:hover {background-color: #e7e7e7;} 
+  .button3 {background-color: white;}
+
+  
 
 }
 
@@ -171,5 +193,6 @@
     line-height: 24px;
   }
 
+  
  
 }

@@ -18,6 +18,7 @@
     <a class="button4 button4" href="/">home</a>
     <a class="button4 button4" href="/journals">journals</a>
     <a class="button4 button4" href="/logout">logout</a>
+    <a class="button5 button3"><b>welcome, <%=current_user.username%></b></a>
   <%end%>
   </div>
 
@@ -26,9 +27,7 @@
 
         <%= yield %>
 
-      <footer class="branding">
-        <small>&copy; 2021 <strong>Journal</strong></small>
-      </footer>
+      
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

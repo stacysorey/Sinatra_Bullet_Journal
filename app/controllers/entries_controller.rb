@@ -16,7 +16,11 @@ class EntriesController < ApplicationController
     require_login
     @entry = current_user.entries.find(params[:id])
       # same authentication issue with journal
+      # user CANNOT see entries that don't belong to them yet
+      # BUT it links to code break page
     erb :'entries/edit'
+    # entry information disappearing after editing
+    # editing is literally clearing all of the information
   end
 
   # patch
@@ -50,6 +54,8 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.find(params[:id])
     @entry.destroy
     redirect '/journals'
+    # delete also not working here in web app
+    # delete works in tux
   end
 
 end

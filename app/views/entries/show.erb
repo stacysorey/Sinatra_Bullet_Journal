@@ -1,8 +1,14 @@
-<h1> Entry: <%= @entry.id %> </h1>
+<h1> <%= @entry.title %></h1>
 <br>
 <br>
   <p>
-  <h2> Entry Title: <%= @entry.title %> </h2>
-  <h2> Entry Date: <%= @entry.date %> </h2>
-  <h2> Entry Description: <%= @entry.description %> </h2>
+  <h3> <%= @entry.date %> </h3>
+  <br>
+  <h2> <%= @entry.description %> </h2>
   </p>
+  <br>
+  <br>
+   <form action="/entries/<%=@entry.id%>" method="post">
+        <input type="hidden" name="_method" value="delete"> 
+        <input type="submit" value= "delete entry">
+  </form>
