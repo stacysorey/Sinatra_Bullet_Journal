@@ -8,7 +8,7 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
-Date::DATE_FORMATS[:default] = '%m-%d-%Y'
+Date::DATE_FORMATS[:default] = '%m.%d.%Y'
 
 require './app/controllers/application_controller'
 require_all 'app'
